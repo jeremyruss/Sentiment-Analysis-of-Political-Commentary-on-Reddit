@@ -103,13 +103,13 @@
         var x = dataframe[subreddit].sentiment;
 
         if(x>0) {
-          barchart.data.datasets[0].backgroundColor = 'rgb(190, 0, 0, 0.8)';
-          bubblechart.data.datasets[0].backgroundColor[clickedElementIndex] = 'rgb(190, 0, 0, 0.8)';
-          bubblechart.options.elements.point.hoverBackgroundColor[clickedElementIndex] = 'rgb(190, 0, 0, 0.8)';
+          barchart.data.datasets[0].backgroundColor = 'rgba(190, 0, 0, 0.8)';
+          bubblechart.data.datasets[0].backgroundColor[clickedElementIndex] = 'rgba(190, 0, 0, 0.8)';
+          bubblechart.options.elements.point.hoverBackgroundColor[clickedElementIndex] = 'rgba(190, 0, 0, 0.8)';
         } else {
-          barchart.data.datasets[0].backgroundColor = 'rgb(0, 20, 190, 0.8)';
-          bubblechart.data.datasets[0].backgroundColor[clickedElementIndex] = 'rgb(0, 20, 190, 0.8)';
-          bubblechart.options.elements.point.hoverBackgroundColor[clickedElementIndex] = 'rgb(0, 20, 190, 0.8)';
+          barchart.data.datasets[0].backgroundColor = 'rgba(0, 20, 190, 0.8)';
+          bubblechart.data.datasets[0].backgroundColor[clickedElementIndex] = 'rgba(0, 20, 190, 0.8)';
+          bubblechart.options.elements.point.hoverBackgroundColor[clickedElementIndex] = 'rgba(0, 20, 190, 0.8)';
         }
 
         //barchart.options.scales.xAxes[0].ticks.suggestedMax = Math.max.apply(Math, bardata) + 1;
@@ -131,11 +131,11 @@
 
       for(i=0; i<data.length; i++) {
         if(data[i].x<0){
-          colour.push('rgb(0, 20, 190, 0.6)')
-          hoverColour.push('rgb(0, 20, 190, 0.5)')
+          colour.push('rgba(0, 20, 190, 0.6)')
+          hoverColour.push('rgba(0, 20, 190, 0.5)')
         } else {
-          colour.push('rgb(190, 0, 0, 0.6)')
-          hoverColour.push('rgb(190, 0, 0, 0.5)')
+          colour.push('rgba(190, 0, 0, 0.6)')
+          hoverColour.push('rgba(190, 0, 0, 0.5)')
         }
       }
 
@@ -146,9 +146,9 @@
       var length = barchart.data.datasets[0].data.length;
       for(i=0; i<length; i++){
         if(i%2==0){
-          barColours.push('rgb(0, 20, 190, 0.6)');
+          barColours.push('rgba(0, 20, 190, 0.6)');
         } else {
-          barColours.push('rgb(190, 0, 0, 0.6)');
+          barColours.push('rgba(190, 0, 0, 0.6)');
         }
       }
 
