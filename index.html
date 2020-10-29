@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>Sentiment Analysis Of Political Commentary On Reddit</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="left">
+      <canvas id="bubble"></canvas>
+    </div>
+    <div id="right">
+      <div id="top">
+        <canvas id="bar"></canvas>
+      </div>
+      <div id="bottom">
+        <canvas id="pie"></canvas>
+      </div>
+    </div>
+  </div>
+  <div id="description">
+    <h1>Sentiment Analysis of Political Commentary on Reddit</h1>
+    <div id="first"><img id="logos" src="img/logos.png">
+      <p>This project was the subject of my dissertation that I completed in 2020. The aim of the project was to analyse the
+      sentiment of posts made to the website Reddit. I took the opportunity to work on this project because of my interest in
+      politics, as well as the potential to develop my knowledge in machine learning. This was the right decision as it
+      inspired me to work on many other projects in the field, and to date I am continuing to build on the experience I gained
+      here.</p>
+      <p>I began this project by developing a program to interact with Reddit's API using the Python Reddit API Wrapper. I
+      generated my own training data by getting the top posts from both the r/Republican and r/Democrats subreddits, and
+      saving them to a JSON file. The idea here being that we could train some sort of machine learning algorithm to
+      distinguish between the title of a post made to the r/Republican subreddit as compared to a post made to the r/Democrats
+      subreddit, and use this model to classify other subreddits that focus on political commentary.</p>
+      <p>Once I had this data I got to work on developing a neural network with TensorFlow to classify the data. I went with a
+      Long-Short Term Memory network structure, which is a good choice for text classification and sequential data (although
+      has been overtaken in popularity by CNNs and most notably Transformer network structures as of late). I used
+      Keras tuner for hyperparameter optimisation but this did not improve the performance much at all. The model achieved
+      around 70% validation accuracy, which is pretty good considering the lack of training data I had available through the
+      API and the quality of the data as well (some titles were only a few words long so understandably there wasn't much
+      information for the neural network to work off).</p>
+    </div>
+    <div id="second"><img id="diagram" src="img/diagram5.png">
+      <p>After the network was trained, I selected a set of subreddits from across the political spectrum to be used for
+      classification. The network evaluated the top 100 or so posts for each subreddit and gave each a score for sentiment, 1 for
+      Republican, 0 for Democrat. I also used a library called TextBlob to get a score for polarity (how positive or negative
+      the posts were) and included the number of subscribers each subreddit had in the statistics as well.</p>
+      <p>I plotted the statistics saved in a JSON file with Chartjs, as seen above, where the x and y direction represents each subreddits
+      sentiment and polarity scores, and the size of each data point represents the size of the user base. Supplemental statistics
+      are also provided for what the users of each subreddit are also interested in by clicking on an individual subreddit's data
+      point.</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+
+</body>
+</html>
